@@ -1,4 +1,4 @@
-import 'dart:convert' as convert;
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -40,6 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemCount: pokedex.length,
                     itemBuilder: (context, index) {
                       var type = pokedex[index]['type'][0];
+                      var id = pokedex[index]['id'];
                       return Card(
                         color: Color.fromARGB(255, 19, 228, 193),
                         child: Stack(
@@ -88,10 +89,19 @@ class _HomeScreenState extends State<HomeScreen> {
                             Positioned(
                               top: 9,
                               right: 9,
-                              child: CachedNetworkImage(
+                              child: new CachedNetworkImage(
                                 imageUrl: "${pokedex[index]['img']}",
-                                errorWidget: (context, url, error) =>
-                                    Icon(Icons.error),
+                                height: 100,
+                                fit: BoxFit.fitHeight,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Positioned(
+                              top: 5,
+                              right: 5,
+                              child: new CachedNetworkImage(
+                                imageUrl: "${pokedex[index]['img']}",
+                                height: 100,
                               ),
                             ),
                           ],
@@ -114,12 +124,12 @@ class _HomeScreenState extends State<HomeScreen> {
     var response = await http.get(url);
 
     if (response.statusCode == 200) {
-      var decodedJsonData = convert.jsonDecode(response.body);
+      var decodedJsonData = jsonDecode(response.body);
       pokedex = decodedJsonData['pokemon'];
       /*int i = 0;
-      while (i < 20) {
+      while (i < 5) {
         print(
-            'Nombre de pokemon: ${pokedex[i]['name']} Peso: ${pokedex[i]['weight']}');
+            'Nombre de pokemon: ${pokedex[i]['name']} Peso: ${pokedex[i]['img']}');
         i++;
       }*/
       setState(() {});
