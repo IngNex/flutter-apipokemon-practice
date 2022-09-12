@@ -8,6 +8,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  /* ================ Consumir Api ================= */
+  var Api =
+      "https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json";
+
+  List pokedex = [];
+
+  void initState() {
+    super.initState();
+    if (mounted) {
+      fetchPokemonData();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +46,33 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 220,
                           fit: BoxFit.fitHeight,
                         ),
-                      )
+                      ),
+                      Positioned(
+                        top: 15,
+                        left: 15,
+                        child: Text(
+                          "Pokemon",
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 0, 117, 98),
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Positioned(
+                        top: 45,
+                        left: 15,
+                        child: Container(
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                left: 8.0, right: 8.0, top: 4, bottom: 4),
+                            child: Text(
+                              "Fire",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 15),
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 );
