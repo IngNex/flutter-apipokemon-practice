@@ -90,7 +90,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               right: 9,
                               child: CachedNetworkImage(
                                 imageUrl: "${pokedex[index]['img']}",
-                                color: Colors.white,
+                                errorWidget: (context, url, error) =>
+                                    Icon(Icons.error),
                               ),
                             ),
                           ],
