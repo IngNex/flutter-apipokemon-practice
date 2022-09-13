@@ -28,6 +28,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Pokedex Generation I"),
+        backgroundColor: Color.fromRGBO(255, 170, 0, 1),
+      ),
       body: Column(
         children: [
           pokedex != null
@@ -40,17 +44,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemCount: pokedex.length,
                     itemBuilder: (context, index) {
                       var type = pokedex[index]['type'][0];
-                      var id = pokedex[index]['id'];
+
                       return Card(
-                        color: Color.fromARGB(255, 19, 228, 193),
+                        color: Color.fromARGB(255, 19, 134, 228),
                         child: Stack(
                           children: [
                             Positioned(
-                              bottom: -50,
-                              right: -50,
+                              bottom: -20,
+                              right: -20,
                               child: Image.asset(
-                                'images/pokeball_nex.png',
-                                height: 220,
+                                'images/pokeball.png',
+                                height: 150,
                                 fit: BoxFit.fitHeight,
                               ),
                             ),
@@ -60,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Text(
                                 "${pokedex[index]['name']}",
                                 style: TextStyle(
-                                    color: Color.fromARGB(255, 0, 117, 98),
+                                    color: Colors.black,
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold),
                               ),
@@ -75,19 +79,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: Text(
                                     type.toString(),
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 15),
+                                        color: Colors.black, fontSize: 15),
                                   ),
                                 ),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(8),
                                   ),
-                                  color: Color.fromARGB(153, 13, 34, 219),
+                                  color: Color.fromARGB(255, 255, 170, 0),
                                 ),
                               ),
                             ),
                             Positioned(
-                              top: 9,
+                              top: 20,
                               right: 9,
                               child: new CachedNetworkImage(
                                 imageUrl: "${pokedex[index]['img']}",
@@ -97,11 +101,12 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             Positioned(
-                              top: 5,
+                              top: 16,
                               right: 5,
                               child: new CachedNetworkImage(
                                 imageUrl: "${pokedex[index]['img']}",
                                 height: 100,
+                                fit: BoxFit.fitHeight,
                               ),
                             ),
                           ],
