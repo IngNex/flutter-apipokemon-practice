@@ -43,32 +43,50 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     itemCount: pokedex.length,
                     itemBuilder: (context, index) {
+                      var id = pokedex[index]['id'];
                       var type = pokedex[index]['type'][0];
-
+                      var name = pokedex[index]['name'];
+                      var img = pokedex[index]['img'];
+                      var weightP = pokedex[index]['weight'];
+                      var heightP = pokedex[index]['height'];
                       return Card(
                         color: Color.fromARGB(255, 19, 134, 228),
                         child: Stack(
                           children: [
+                            /* Img - Ball */
                             Positioned(
-                              bottom: -20,
-                              right: -20,
+                              bottom: -25,
+                              right: -25,
                               child: Image.asset(
                                 'images/pokeball.png',
                                 height: 150,
                                 fit: BoxFit.fitHeight,
                               ),
                             ),
+                            /* Name */
                             Positioned(
-                              top: 15,
-                              left: 15,
+                                top: 10,
+                                left: 8,
+                                child: Text(
+                                  name.toString(),
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                )),
+                            /* id */
+                            Positioned(
+                              top: 10,
+                              right: 10,
                               child: Text(
-                                "${pokedex[index]['name']}",
+                                id.toString(),
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold),
                               ),
                             ),
+                            /* Type Pokemon */
                             Positioned(
                               bottom: 10,
                               left: 8,
@@ -90,21 +108,55 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                             ),
+                            /* Height */
                             Positioned(
+                              top: 60,
+                              left: 8,
+                              child: Container(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 8.0, right: 8.0, top: 4, bottom: 4),
+                                  child: Text(
+                                    heightP.toString(),
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 15),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            /* Weight */
+                            Positioned(
+                              top: 40,
+                              left: 8,
+                              child: Container(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 8.0, right: 8.0, top: 4, bottom: 4),
+                                  child: Text(
+                                    weightP.toString(),
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 15),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            /* Sombra Blanca */
+                            /*Positioned(
                               top: 20,
                               right: 9,
                               child: new CachedNetworkImage(
-                                imageUrl: "${pokedex[index]['img']}",
+                                imageUrl: "${img.toString()}",
                                 height: 100,
                                 fit: BoxFit.fitHeight,
                                 color: Colors.white,
                               ),
-                            ),
+                            ),*/
+                            /* Imagen de Pokemon */
                             Positioned(
-                              top: 16,
+                              top: 30,
                               right: 5,
                               child: new CachedNetworkImage(
-                                imageUrl: "${pokedex[index]['img']}",
+                                imageUrl: "${img.toString()}",
                                 height: 100,
                                 fit: BoxFit.fitHeight,
                               ),
