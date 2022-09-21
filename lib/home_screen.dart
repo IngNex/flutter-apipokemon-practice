@@ -43,6 +43,8 @@ class _HomeScreenState extends State<HomeScreen> {
               'images/pokeball_nex.png',
               width: 200,
               fit: BoxFit.fitWidth,
+              color: Color.fromARGB(142, 0, 0, 0),
+              /*https://youtu.be/-4pt1ACoR9c?t=3463 */
             ),
           ),
           Positioned(
@@ -93,9 +95,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                       bottom: -25,
                                       right: -25,
                                       child: Image.asset(
-                                        'images/pokeball_nex.png',
+                                        'images/pokeball.png',
                                         height: 150,
                                         fit: BoxFit.fitWidth,
+                                        color: Colors.white.withOpacity(0.75),
+                                        colorBlendMode: BlendMode.modulate,
                                       ),
                                     ),
                                     /* Name */
