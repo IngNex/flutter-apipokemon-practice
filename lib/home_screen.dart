@@ -30,12 +30,31 @@ class _HomeScreenState extends State<HomeScreen> {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
         title: Text("Pokedex Generation I"),
         backgroundColor: Color.fromRGBO(255, 170, 0, 1),
-      ),
+      ),*/
       body: Stack(
         children: [
+          Positioned(
+            top: -50,
+            right: -50,
+            child: Image.asset(
+              'images/pokeball_nex.png',
+              width: 200,
+              fit: BoxFit.fitWidth,
+            ),
+          ),
+          Positioned(
+              top: 60,
+              left: 20,
+              child: Text(
+                "ApiGet Pokemon",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30),
+              )),
           Positioned(
             top: 150,
             bottom: 0,
@@ -74,9 +93,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       bottom: -25,
                                       right: -25,
                                       child: Image.asset(
-                                        'images/pokeball.png',
+                                        'images/pokeball_nex.png',
                                         height: 150,
-                                        fit: BoxFit.fitHeight,
+                                        fit: BoxFit.fitWidth,
                                       ),
                                     ),
                                     /* Name */
