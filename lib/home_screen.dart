@@ -79,169 +79,181 @@ class _HomeScreenState extends State<HomeScreen> {
                             var img = pokedex[index]['img'];
                             var weightP = pokedex[index]['weight'];
                             var heightP = pokedex[index]['height'];
-                            return Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 8, horizontal: 12),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: type == 'Grass'
-                                      ? Colors.green
-                                      : type == 'Fire'
-                                          ? Colors.redAccent
-                                          : type == 'Water'
-                                              ? Colors.blue
-                                              : type == 'Bug'
-                                                  ? Colors.greenAccent
-                                                  : type == 'Normal'
-                                                      ? Colors.grey
-                                                      : type == 'Poison'
-                                                          ? Colors.purple[300]
-                                                          : type == 'Electric'
-                                                              ? Colors.yellow
-                                                              : type == 'Ground'
-                                                                  ? Colors.brown[
-                                                                      400]
-                                                                  : type ==
-                                                                          'Fighting'
-                                                                      ? Colors.brown[
-                                                                          600]
-                                                                      : type ==
-                                                                              'Psychic'
-                                                                          ? Colors.pink[
-                                                                              400]
-                                                                          : Colors
-                                                                              .purple[900],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
-                                ),
-                                child: Stack(
-                                  children: [
-                                    /* Img - Ball */
-                                    Positioned(
-                                      bottom: -25,
-                                      right: -25,
-                                      child: Image.asset(
-                                        'images/pokeball.png',
-                                        height: 150,
-                                        fit: BoxFit.fitWidth,
-                                        color: Colors.white.withOpacity(0.4),
-                                        colorBlendMode: BlendMode.modulate,
+                            return InkWell(
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 6, horizontal: 10),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: type == 'Grass'
+                                        ? Colors.greenAccent
+                                        : type == 'Fire'
+                                            ? Colors.red[400]
+                                            : type == 'Water'
+                                                ? Colors.blue[300]
+                                                : type == 'Bug'
+                                                    ? Colors.greenAccent[400]
+                                                    : type == 'Normal'
+                                                        ? Colors.blueGrey[400]
+                                                        : type == 'Poison'
+                                                            ? Colors.purple[800]
+                                                            : type == 'Electric'
+                                                                ? Colors
+                                                                    .yellowAccent
+                                                                : type ==
+                                                                        'Ground'
+                                                                    ? Colors.brown[
+                                                                        400]
+                                                                    : type ==
+                                                                            'Fighting'
+                                                                        ? Colors.brown[
+                                                                            600]
+                                                                        : type ==
+                                                                                'Psychic'
+                                                                            ? Colors.pink[400]
+                                                                            : type == 'Dragon'
+                                                                                ? Colors.purple[900]
+                                                                                : type == 'Rock'
+                                                                                    ? Colors.brown[200]
+                                                                                    : type == 'Ice'
+                                                                                        ? Colors.lightBlue
+                                                                                        : Colors.purple[900],
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20)),
+                                  ),
+                                  child: Stack(
+                                    children: [
+                                      /* Img - Ball */
+                                      Positioned(
+                                        bottom: -25,
+                                        right: -25,
+                                        child: Image.asset(
+                                          'images/pokeball.png',
+                                          height: 150,
+                                          fit: BoxFit.fitWidth,
+                                          color:
+                                              Colors.white12.withOpacity(0.2),
+                                          colorBlendMode: BlendMode.modulate,
+                                        ),
                                       ),
-                                    ),
-                                    /* Name */
-                                    Positioned(
+                                      /* Name */
+                                      Positioned(
+                                          top: 10,
+                                          left: 8,
+                                          child: Text(
+                                            name.toString(),
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold),
+                                          )),
+                                      /* id */
+                                      Positioned(
                                         top: 10,
-                                        left: 8,
+                                        right: 10,
                                         child: Text(
-                                          name.toString(),
+                                          id.toString(),
                                           style: TextStyle(
                                               color: Colors.black,
-                                              fontSize: 18,
+                                              fontSize: 16,
                                               fontWeight: FontWeight.bold),
-                                        )),
-                                    /* id */
-                                    Positioned(
-                                      top: 10,
-                                      right: 10,
-                                      child: Text(
-                                        id.toString(),
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ),
-                                    /* Type Pokemon */
-                                    Positioned(
-                                      bottom: 10,
-                                      left: 8,
-                                      child: Container(
-                                        child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 8.0,
-                                              right: 8.0,
-                                              top: 4,
-                                              bottom: 4),
-                                          child: Text(
-                                            type.toString(),
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 15),
-                                          ),
-                                        ),
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.all(
-                                            Radius.circular(8),
-                                          ),
-                                          color:
-                                              Color.fromARGB(255, 255, 170, 0),
                                         ),
                                       ),
-                                    ),
-                                    /* Height */
-                                    Positioned(
-                                      top: 60,
-                                      left: 8,
-                                      child: Container(
-                                        child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 8.0,
-                                              right: 8.0,
-                                              top: 4,
-                                              bottom: 4),
-                                          child: Text(
-                                            heightP.toString(),
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 15),
+                                      /* Type Pokemon */
+                                      Positioned(
+                                        bottom: 10,
+                                        left: 8,
+                                        child: Container(
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 8.0,
+                                                right: 8.0,
+                                                top: 4,
+                                                bottom: 4),
+                                            child: Text(
+                                              type.toString(),
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 15),
+                                            ),
+                                          ),
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(8),
+                                            ),
+                                            color:
+                                                Colors.black.withOpacity(0.2),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                    /* Weight */
-                                    Positioned(
-                                      top: 40,
-                                      left: 8,
-                                      child: Container(
-                                        child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 8.0,
-                                              right: 8.0,
-                                              top: 4,
-                                              bottom: 4),
-                                          child: Text(
-                                            weightP.toString(),
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 15),
+                                      /* Height */
+                                      Positioned(
+                                        top: 60,
+                                        left: 8,
+                                        child: Container(
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 8.0,
+                                                right: 8.0,
+                                                top: 4,
+                                                bottom: 4),
+                                            child: Text(
+                                              heightP.toString(),
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 15),
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                    /* Sombra Blanca */
-                                    /*Positioned(
-                                    top: 20,
-                                    right: 9,
-                                    child: new CachedNetworkImage(
-                                      imageUrl: "${img.toString()}",
-                                      height: 100,
-                                      fit: BoxFit.fitHeight,
-                                      color: Colors.white,
-                                    ),
-                                  ),*/
-                                    /* Imagen de Pokemon */
-                                    Positioned(
-                                      top: 30,
-                                      right: 5,
+                                      /* Weight */
+                                      Positioned(
+                                        top: 40,
+                                        left: 8,
+                                        child: Container(
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 8.0,
+                                                right: 8.0,
+                                                top: 4,
+                                                bottom: 4),
+                                            child: Text(
+                                              weightP.toString(),
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 15),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      /* Sombra Blanca */
+                                      /*Positioned(
+                                      top: 20,
+                                      right: 9,
                                       child: new CachedNetworkImage(
-                                        imageUrl: img,
+                                        imageUrl: "${img.toString()}",
                                         height: 100,
                                         fit: BoxFit.fitHeight,
+                                        color: Colors.white,
                                       ),
-                                    ),
-                                  ],
+                                    ),*/
+                                      /* Imagen de Pokemon */
+                                      Positioned(
+                                        top: 30,
+                                        right: 5,
+                                        child: new CachedNetworkImage(
+                                          imageUrl: img,
+                                          height: 100,
+                                          fit: BoxFit.fitHeight,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
+                              onTap: () {
+                                //Todo navegador nuevo necesita un screen
+                              },
                             );
                           },
                         ),
