@@ -19,7 +19,7 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: widget.color,
     );
   }
 }

@@ -259,7 +259,39 @@ class _HomeScreenState extends State<HomeScreen> {
                                   MaterialPageRoute(
                                       builder: (_) => DetailsObjectScreen(
                                             objectDetail: pokedex[index],
-                                            color: Colors.green,
+                                            color: type == 'Grass'
+                                                ? Colors.greenAccent
+                                                : type == 'Fire'
+                                                    ? Colors.red
+                                                    : type == 'Water'
+                                                        ? Colors.blue
+                                                        : type == 'Bug'
+                                                            ? Colors.greenAccent
+                                                            : type == 'Normal'
+                                                                ? Colors
+                                                                    .blueGrey
+                                                                : type ==
+                                                                        'Poison'
+                                                                    ? Colors
+                                                                        .purple
+                                                                    : type ==
+                                                                            'Electric'
+                                                                        ? Colors
+                                                                            .yellowAccent
+                                                                        : type ==
+                                                                                'Ground'
+                                                                            ? Colors.brown
+                                                                            : type == 'Fighting'
+                                                                                ? Colors.brown
+                                                                                : type == 'Psychic'
+                                                                                    ? Colors.pink
+                                                                                    : type == 'Dragon'
+                                                                                        ? Colors.purple
+                                                                                        : type == 'Rock'
+                                                                                            ? Colors.brown
+                                                                                            : type == 'Ice'
+                                                                                                ? Colors.lightBlue
+                                                                                                : Colors.purple,
                                             heroTag: index,
                                           )),
                                 );
