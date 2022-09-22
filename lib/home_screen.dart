@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter_ui_apipokemon/details_object_screen.dart';
 import 'package:http/http.dart' as http;
 import 'package:cached_network_image/cached_network_image.dart';
 
@@ -253,6 +254,15 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               onTap: () {
                                 //Todo navegador nuevo necesita un screen
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => DetailsObjectScreen(
+                                            objectDetail: pokedex[index],
+                                            color: Colors.green,
+                                            heroTag: index,
+                                          )),
+                                );
                               },
                             );
                           },

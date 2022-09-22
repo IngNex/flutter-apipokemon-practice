@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
 class DetailsObjectScreen extends StatefulWidget {
-  const DetailsObjectScreen({super.key});
+  final objectDetail;
+  final Color color;
+  final int heroTag;
+
+  const DetailsObjectScreen(
+      {super.key,
+      required this.objectDetail,
+      required this.color,
+      required this.heroTag});
 
   @override
   State<DetailsObjectScreen> createState() => _DetailsObjectScreenState();
