@@ -1,8 +1,9 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:cached_network_image/cached_network_image.dart';
+
+import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -44,7 +45,6 @@ class _HomeScreenState extends State<HomeScreen> {
               width: 200,
               fit: BoxFit.fitWidth,
               color: Color.fromARGB(142, 0, 0, 0),
-              /*https://youtu.be/-4pt1ACoR9c?t=3463 */
             ),
           ),
           Positioned(
@@ -84,7 +84,33 @@ class _HomeScreenState extends State<HomeScreen> {
                                   vertical: 8, horizontal: 12),
                               child: Container(
                                 decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 19, 134, 228),
+                                  color: type == 'Grass'
+                                      ? Colors.green
+                                      : type == 'Fire'
+                                          ? Colors.redAccent
+                                          : type == 'Water'
+                                              ? Colors.blue
+                                              : type == 'Bug'
+                                                  ? Colors.greenAccent
+                                                  : type == 'Normal'
+                                                      ? Colors.grey
+                                                      : type == 'Poison'
+                                                          ? Colors.purple[300]
+                                                          : type == 'Electric'
+                                                              ? Colors.yellow
+                                                              : type == 'Ground'
+                                                                  ? Colors.brown[
+                                                                      400]
+                                                                  : type ==
+                                                                          'Fighting'
+                                                                      ? Colors.brown[
+                                                                          600]
+                                                                      : type ==
+                                                                              'Psychic'
+                                                                          ? Colors.pink[
+                                                                              400]
+                                                                          : Colors
+                                                                              .purple[900],
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(20)),
                                 ),
@@ -98,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         'images/pokeball.png',
                                         height: 150,
                                         fit: BoxFit.fitWidth,
-                                        color: Colors.white.withOpacity(0.75),
+                                        color: Colors.white.withOpacity(0.4),
                                         colorBlendMode: BlendMode.modulate,
                                       ),
                                     ),
