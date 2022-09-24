@@ -319,10 +319,13 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
           Positioned(
             top: height * 0.20,
             left: (width / 2) - 100,
-            child: new CachedNetworkImage(
-              imageUrl: widget.objectDetail['img'],
-              height: 200,
-              fit: BoxFit.fitHeight,
+            child: Hero(
+              tag: widget.heroTag,
+              child: CachedNetworkImage(
+                imageUrl: widget.objectDetail['img'],
+                height: 200,
+                fit: BoxFit.fitHeight,
+              ),
             ),
           ),
         ],

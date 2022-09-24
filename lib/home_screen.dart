@@ -242,10 +242,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Positioned(
                                         top: 30,
                                         right: 5,
-                                        child: new CachedNetworkImage(
-                                          imageUrl: img,
-                                          height: 100,
-                                          fit: BoxFit.fitHeight,
+                                        child: Hero(
+                                          tag: index,
+                                          child: CachedNetworkImage(
+                                            imageUrl: img,
+                                            height: 100,
+                                            fit: BoxFit.fitHeight,
+                                          ),
                                         ),
                                       ),
                                     ],
