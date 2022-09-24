@@ -117,11 +117,10 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
                             ),
                           ),
                           Container(
-                            width: width * 0.3,
                             child: Text(widget.objectDetail['name'],
                                 style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: 18,
+                                    fontSize: 16,
                                     fontWeight: FontWeight.bold)),
                           ),
                         ],
@@ -145,7 +144,7 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
                             child: Text(widget.objectDetail['height'],
                                 style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: 18,
+                                    fontSize: 16,
                                     fontWeight: FontWeight.bold)),
                           ),
                         ],
@@ -165,11 +164,10 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
                             ),
                           ),
                           Container(
-                            width: width * 0.3,
                             child: Text(widget.objectDetail['weight'],
                                 style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: 18,
+                                    fontSize: 16,
                                     fontWeight: FontWeight.bold)),
                           ),
                         ],
@@ -189,12 +187,64 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
                             ),
                           ),
                           Container(
-                            width: width * 0.3,
                             child: Text(widget.objectDetail['spawn_time'],
                                 style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: 18,
+                                    fontSize: 16,
                                     fontWeight: FontWeight.bold)),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: width * 0.3,
+                            child: Text(
+                              "Weaknesses",
+                              style: TextStyle(
+                                  color: Colors.blueGrey, fontSize: 18),
+                            ),
+                          ),
+                          Container(
+                            child: Text(
+                                widget.objectDetail['weaknesses'].join(" - "),
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: width * 0.3,
+                            child: Text(
+                              "Evolution",
+                              style: TextStyle(
+                                  color: Colors.blueGrey, fontSize: 18),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                            width: width * 0.55,
+                            child: ListView.builder(
+                              itemCount:
+                                  widget.objectDetail['next_evolution'].length,
+                              itemBuilder: (context, index) {
+                                return Text(
+                                    widget.objectDetail['next_evolution'][index]
+                                        ['name']);
+                              },
+                            ),
                           ),
                         ],
                       ),
