@@ -103,27 +103,102 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
                     SizedBox(
                       height: 50,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: width * 0.3,
-                          child: Text(
-                            "Name",
-                            style:
-                                TextStyle(color: Colors.blueGrey, fontSize: 18),
-                          ),
-                        ),
-                        Container(
-                          width: width * 0.3,
-                          child: Text(widget.objectDetail['name'],
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: width * 0.3,
+                            child: Text(
+                              "Name",
                               style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold)),
-                        ),
-                      ],
-                    )
+                                  color: Colors.blueGrey, fontSize: 18),
+                            ),
+                          ),
+                          Container(
+                            width: width * 0.3,
+                            child: Text(widget.objectDetail['name'],
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: width * 0.3,
+                            child: Text(
+                              "Height",
+                              style: TextStyle(
+                                  color: Colors.blueGrey, fontSize: 18),
+                            ),
+                          ),
+                          Container(
+                            width: width * 0.3,
+                            child: Text(widget.objectDetail['height'],
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: width * 0.3,
+                            child: Text(
+                              "Weight",
+                              style: TextStyle(
+                                  color: Colors.blueGrey, fontSize: 18),
+                            ),
+                          ),
+                          Container(
+                            width: width * 0.3,
+                            child: Text(widget.objectDetail['weight'],
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: width * 0.3,
+                            child: Text(
+                              "Spawn Time",
+                              style: TextStyle(
+                                  color: Colors.blueGrey, fontSize: 18),
+                            ),
+                          ),
+                          Container(
+                            width: width * 0.3,
+                            child: Text(widget.objectDetail['spawn_time'],
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
