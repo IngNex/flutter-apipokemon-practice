@@ -233,27 +233,31 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
                                   color: Colors.blueGrey, fontSize: 18),
                             ),
                           ),
-                          SizedBox(
-                            height: 20,
-                            width: width * 0.55,
-                            child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              itemCount:
-                                  widget.objectDetail['next_evolution'].length,
-                              itemBuilder: (context, index) {
-                                return Padding(
-                                  padding: const EdgeInsets.only(right: 8.0),
-                                  child: Text(
-                                      widget.objectDetail['next_evolution']
-                                          [index]['name'],
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold)),
-                                );
-                              },
-                            ),
-                          ),
+                          widget.objectDetail['next_evolution'] != null
+                              ? SizedBox(
+                                  height: 20,
+                                  width: width * 0.55,
+                                  child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: widget
+                                        .objectDetail['next_evolution'].length,
+                                    itemBuilder: (context, index) {
+                                      return Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 8.0),
+                                        child: Text(
+                                            widget.objectDetail[
+                                                    'next_evolution'][index]
+                                                ['name'],
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold)),
+                                      );
+                                    },
+                                  ),
+                                )
+                              : Text('Maxed Out'),
                         ],
                       ),
                     ),
