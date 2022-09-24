@@ -95,9 +95,37 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
                 ),
                 color: Colors.white,
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [Text("name")],
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 50,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: width * 0.3,
+                          child: Text(
+                            "Name",
+                            style:
+                                TextStyle(color: Colors.blueGrey, fontSize: 18),
+                          ),
+                        ),
+                        Container(
+                          width: width * 0.3,
+                          child: Text(widget.objectDetail['name'],
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold)),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           ),
