@@ -228,6 +228,51 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
                           Container(
                             width: width * 0.3,
                             child: Text(
+                              "Prev Form",
+                              style: TextStyle(
+                                  color: Colors.blueGrey, fontSize: 18),
+                            ),
+                          ),
+                          widget.objectDetail['prev_evolution'] != null
+                              ? SizedBox(
+                                  height: 20,
+                                  width: width * 0.55,
+                                  child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: widget
+                                        .objectDetail['prev_evolution'].length,
+                                    itemBuilder: (context, index) {
+                                      return Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 10.0),
+                                        child: Text(
+                                            widget.objectDetail[
+                                                    'prev_evolution'][index]
+                                                ['name'],
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold)),
+                                      );
+                                    },
+                                  ),
+                                )
+                              : Text('Just Hatched',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold)),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: width * 0.3,
+                            child: Text(
                               "Evolution",
                               style: TextStyle(
                                   color: Colors.blueGrey, fontSize: 18),
@@ -244,7 +289,7 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
                                     itemBuilder: (context, index) {
                                       return Padding(
                                         padding:
-                                            const EdgeInsets.only(right: 8.0),
+                                            const EdgeInsets.only(right: 10.0),
                                         child: Text(
                                             widget.objectDetail[
                                                     'next_evolution'][index]
@@ -257,7 +302,11 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
                                     },
                                   ),
                                 )
-                              : Text('Maxed Out'),
+                              : Text('Maxed Out',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold)),
                         ],
                       ),
                     ),
