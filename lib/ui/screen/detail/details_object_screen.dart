@@ -45,7 +45,7 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
             top: 80,
             left: 20,
             child: Text(
-              widget.objectDetail['name'],
+              widget.objectDetail.name,
               style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -61,7 +61,7 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
                 padding: const EdgeInsets.only(
                     left: 8.0, right: 8.0, top: 4.0, bottom: 4.0),
                 child: Text(
-                  widget.objectDetail['type'].join(', '),
+                  widget.objectDetail.type.join(', '),
                   style: TextStyle(color: Colors.white),
                 ),
               ),
@@ -117,7 +117,7 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
                             ),
                           ),
                           Container(
-                            child: Text(widget.objectDetail['name'],
+                            child: Text(widget.objectDetail.name,
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 16,
@@ -141,7 +141,7 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
                           ),
                           Container(
                             width: width * 0.3,
-                            child: Text(widget.objectDetail['height'],
+                            child: Text(widget.objectDetail.height,
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 16,
@@ -164,7 +164,7 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
                             ),
                           ),
                           Container(
-                            child: Text(widget.objectDetail['weight'],
+                            child: Text(widget.objectDetail.weight,
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 16,
@@ -180,15 +180,15 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
                         children: [
                           Container(
                             width: width * 0.3,
-                            child: Text(
-                              "Spawn Time",
+                            child: const Text(
+                              "Egg",
                               style: TextStyle(
                                   color: Colors.blueGrey, fontSize: 18),
                             ),
                           ),
                           Container(
-                            child: Text(widget.objectDetail['spawn_time'],
-                                style: TextStyle(
+                            child: Text(widget.objectDetail.egg,
+                                style: const TextStyle(
                                     color: Colors.black,
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold)),
@@ -209,9 +209,9 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
                                   color: Colors.blueGrey, fontSize: 18),
                             ),
                           ),
-                          Container(
+                          Expanded(
                             child: Text(
-                                widget.objectDetail['weaknesses'].join(" - "),
+                                widget.objectDetail.weaknesses.join(" - "),
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 16,
@@ -233,22 +233,23 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
                                   color: Colors.blueGrey, fontSize: 18),
                             ),
                           ),
-                          widget.objectDetail['prev_evolution'] != null
+                          // Text(
+                          //     '${widget.objectDetail.prev_evolution[0]['name']}'),
+                          widget.objectDetail.prev_evolution.length != 0
                               ? SizedBox(
                                   height: 20,
                                   width: width * 0.55,
                                   child: ListView.builder(
                                     scrollDirection: Axis.horizontal,
                                     itemCount: widget
-                                        .objectDetail['prev_evolution'].length,
+                                        .objectDetail.prev_evolution.length,
                                     itemBuilder: (context, index) {
                                       return Padding(
                                         padding:
                                             const EdgeInsets.only(right: 10.0),
                                         child: Text(
-                                            widget.objectDetail[
-                                                    'prev_evolution'][index]
-                                                ['name'],
+                                            widget.objectDetail
+                                                .prev_evolution[index]['name'],
                                             style: TextStyle(
                                                 color: Colors.black,
                                                 fontSize: 16,
@@ -257,11 +258,13 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
                                     },
                                   ),
                                 )
-                              : Text('Just Hatched',
+                              : Text(
+                                  'Just Hatched',
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 16,
-                                      fontWeight: FontWeight.bold)),
+                                      fontWeight: FontWeight.bold),
+                                ),
                         ],
                       ),
                     ),
@@ -278,22 +281,21 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
                                   color: Colors.blueGrey, fontSize: 18),
                             ),
                           ),
-                          widget.objectDetail['next_evolution'] != null
+                          widget.objectDetail.next_evolution.length != 0
                               ? SizedBox(
                                   height: 20,
                                   width: width * 0.55,
                                   child: ListView.builder(
                                     scrollDirection: Axis.horizontal,
                                     itemCount: widget
-                                        .objectDetail['next_evolution'].length,
+                                        .objectDetail.next_evolution.length,
                                     itemBuilder: (context, index) {
                                       return Padding(
                                         padding:
                                             const EdgeInsets.only(right: 10.0),
                                         child: Text(
-                                            widget.objectDetail[
-                                                    'next_evolution'][index]
-                                                ['name'],
+                                            widget.objectDetail
+                                                .next_evolution[index]['name'],
                                             style: TextStyle(
                                                 color: Colors.black,
                                                 fontSize: 16,
@@ -317,12 +319,12 @@ class _DetailsObjectScreenState extends State<DetailsObjectScreen> {
           ),
           /* Object img */
           Positioned(
-            top: height * 0.20,
+            top: height * 0.22,
             left: (width / 2) - 100,
             child: Hero(
               tag: widget.heroTag,
               child: CachedNetworkImage(
-                imageUrl: widget.objectDetail['img'],
+                imageUrl: widget.objectDetail.img,
                 height: 200,
                 fit: BoxFit.fitHeight,
               ),
